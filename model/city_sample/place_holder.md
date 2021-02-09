@@ -1,1 +1,1 @@
-The folders 'city_sample' in 'data' is empty and is used only for an example. The training and testing program can be applied to any city once the according data are prepared.
+The folders 'city_sample' in 'model' is empty and is used only for an example. The training and testing program can be applied to any city once the according data are prepared.
