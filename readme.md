@@ -1,6 +1,6 @@
 # Source code for Hierarchical-RL
 
-- RL-train.py: Train the RL agent.
-- RNN-train.py: Train the information rebuilding RNN.
-- overall-test.py: Test the whole system.
-- util\result_statistic.py: Analyse the results.
+- code\RL-train.py: Train the RL agent.
+- code\RNN-train.py: Train the information rebuilding RNN.
+- code\overall-test.py: Test the whole system.
+- code\util\result_statistic.py: Analyse the results.
