@@ -56,9 +56,9 @@ def statistics(city,population):
         upper = mu + 1.96 * std
         lower = mu - 1.96 * std
 
-        worksheet.write(row + 1, col, '%.2f' % (100 * mu / population))
+        worksheet.write(row + 1, col, '%.2f(%.2f)' % (100 * mu / population, 100 * std / population))
         worksheet.write(row + 2, col, '(%.2f,%.2f)' % (100 * lower / population, 100 * upper / population))
-        worksheet.write(row + 3, col, '%d' % (mu))
+        worksheet.write(row + 3, col, '%d(%d)' % (mu, std))
         worksheet.write(row + 4, col, '(%d,%d)' % (lower, upper))
         col += 1
 
@@ -78,9 +78,9 @@ def statistics(city,population):
         upper = mu + 1.96 * std
         lower = mu - 1.96 * std
 
-        worksheet.write(row + 1, col, '%.2f' % (1000 * mu / population))
+        worksheet.write(row + 1, col, '%.2f(%.2f)' % (1000 * mu / population, 1000 * std / population))
         worksheet.write(row + 2, col, '(%.2f,%.2f)' % (1000 * lower / population, 1000 * upper / population))
-        worksheet.write(row + 3, col, '%d' % (mu))
+        worksheet.write(row + 3, col, '%d(%d)' % (mu, std))
         worksheet.write(row + 4, col, '(%d,%d)' % (lower, upper))
         col += 1
 
@@ -100,9 +100,9 @@ def statistics(city,population):
         upper = mu + 1.96 * std
         lower = mu - 1.96 * std
 
-        worksheet.write(row + 1, col, '%.2f' % (1000 * mu / population))
+        worksheet.write(row + 1, col, '%.2f(%.2f)' % (1000 * mu / population, 1000 * std / population))
         worksheet.write(row + 2, col, '(%.2f,%.2f)' % (1000 * lower / population, 1000 * upper / population))
-        worksheet.write(row + 3, col, '%d' % (mu))
+        worksheet.write(row + 3, col, '%d(%d)' % (mu, std))
         worksheet.write(row + 4, col, '(%d,%d)' % (lower, upper))
         col += 1
 
@@ -122,9 +122,9 @@ def statistics(city,population):
         upper = mu + 1.96 * std
         lower = mu - 1.96 * std
 
-        worksheet.write(row + 1, col, '%.2f' % (10000 * mu / population))
+        worksheet.write(row + 1, col, '%.2f(%.2f)' % (10000 * mu / population, 10000 * std / population))
         worksheet.write(row + 2, col, '(%.2f,%.2f)' % (10000 * lower / population, 10000 * upper / population))
-        worksheet.write(row + 3, col, '%d' % (mu))
+        worksheet.write(row + 3, col, '%d(%d)' % (mu, std))
         worksheet.write(row + 4, col, '(%d,%d)' % (lower, upper))
         col += 1
 
