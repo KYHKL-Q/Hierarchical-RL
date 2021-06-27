@@ -146,16 +146,16 @@ class RL_train(object):
                 bed_perc = self.Bed_Actor_eval(torch.FloatTensor(self.current_state[:,[1,2,3,5,6,7]]).to(self.device).unsqueeze(0))
                 mask_perc = self.Mask_Actor_eval(torch.FloatTensor(self.current_state[:,[1,2,3,5,6,7]]).to(self.device).unsqueeze(0))
 
-                bed_perc = bed_perc.squeeze(0).cpu().detach().item()
-                print('bed_perc:{}'.format(bed_perc))
-                bed_perc = np.clip(bed_perc + self.Actor_explore_factor * np.random.randn(), 0.1, 1)
+                bed_perc = bed_perc.squeeze(0).cpu().detach().item()+ self.Actor_explore_factor * np.random.randn()
+                bed_perc_clip = np.clip(bed_perc, 0.1, 1)
+                print('bed_perc:{}'.format(bed_perc_clip))
 
-                mask_perc = mask_perc.squeeze(0).cpu().detach().item()
-                print('mask_perc:{}'.format(mask_perc))
-                mask_perc = np.clip(mask_perc + self.Actor_explore_factor * np.random.randn(), 0.1, 1)
+                mask_perc = mask_perc.squeeze(0).cpu().detach().item()+ self.Actor_explore_factor * np.random.randn()
+                mask_perc_clip = np.clip(mask_perc, 0.1, 1)
+                print('mask_perc:{}'.format(mask_perc_clip))
 
                 #get the next state through simulation
-                self.next_state, _ = self.simulator.simulate(sim_type='Policy_a', interval=self.interval, bed_total=self.bed_total, bed_action=bed_action, bed_satisfy_perc=bed_perc, mask_on=True, mask_total=self.mask_total, mask_quality=self.mask_quality, mask_lasting=self.mask_lasting, mask_action=mask_action, mask_satisfy_perc=mask_perc)
+                self.next_state, _ = self.simulator.simulate(sim_type='Policy_a', interval=self.interval, bed_total=self.bed_total, bed_action=bed_action, bed_satisfy_perc=bed_perc_clip, mask_on=True, mask_total=self.mask_total, mask_quality=self.mask_quality, mask_lasting=self.mask_lasting, mask_action=mask_action, mask_satisfy_perc=mask_perc_clip)
 
                 if(self.simulator.full and end_count==0):
                     end_count=1
